@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--   ~ Copyright (c) Huawei Technologies Co., Ltd. 2015-2019. All rights reserved. -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.huawei.android.hms.location"
+    android:versionCode="40000200" >
+
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="26" />
+
+    <application>
+
+        <!-- 声明Kit SDK的名称和版本号 -->
+        <meta-data
+            android:name="com.huawei.hms.client.service.name:location"
+            android:value="location:4.0.2.300" />
+        <!-- 声明对Kit服务依赖的最低API Level -->
+        <meta-data
+            android:name="com.huawei.hms.min_api_level:location:location"
+            android:value="1" />
+    </application>
+
+</manifest>

@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{482E2C76-998F-495C-8601-730578997F06}|Default">
+  <MonoDevelop.Ide.ItemProperties.HMS__Map__Demo AndroidDesignerPreferredTheme="AppTheme" AndroidDesignerPreferredDevice="Nexus 4" PreferredExecutionTarget="Android.94HUT20217000260" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="MainActivity.cs">
+    <Files>
+      <File FileName="CustomMapInfoWindow.cs" Line="1" Column="1" />
+      <File FileName="MainActivity.cs" Line="243" Column="45" />
+      <File FileName="HmsLazyInputStream.cs" />
+      <File FileName="ViewModels/MainViewmodel.cs" />
+      <File FileName="Assets/agconnect-services.json" />
+      <File FileName="Properties/AndroidManifest.xml" />
+      <File FileName="XamarinCustomProvider.cs" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="HMS_Map_Demo" expanded="True">
+            <Node name="HMS_Map_Demo" expanded="True">
+              <Node name="MainActivity.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
