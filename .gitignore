@@ -93,6 +93,7 @@ output.json
 
 ### XamarinStudio ###
 obj/
+obj/*
 *.userprefs
 .packages
 
