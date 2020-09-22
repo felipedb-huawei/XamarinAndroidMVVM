@@ -25,26 +25,26 @@ namespace HMS_Map_Demo.ViewModels
 
         internal void MarkersDemo(HuaweiMap hMap, Context context)
         {
-                hMap.Clear();
+            hMap.Clear();
 
             LatLng pointMarker = new LatLng(4.70036647106663, -74.10923011678256);
 
             Marker marker1;
-                MarkerOptions marker1Options = new MarkerOptions()
-                    .InvokePosition(pointMarker)
-                    .InvokeTitle("Marker Title #1")
-                    .InvokeSnippet("Marker Desc #1");
-                marker1 = hMap.AddMarker(marker1Options);
+            MarkerOptions marker1Options = new MarkerOptions()
+                .InvokePosition(pointMarker)
+                .InvokeTitle("Marker Title #1")
+                .InvokeSnippet("Marker Desc #1");
+            marker1 = hMap.AddMarker(marker1Options);
 
-                Marker marker2;
-                MarkerOptions marker2Options = new MarkerOptions()
-                    .InvokePosition(new LatLng(4.704653, -74.049435))
-                    .InvokeTitle("Marker Title #2")
-                    .InvokeSnippet("Marker Desc #2");
-                marker2 = hMap.AddMarker(marker2Options);
+            Marker marker2;
+            MarkerOptions marker2Options = new MarkerOptions()
+                .InvokePosition(new LatLng(4.704653, -74.049435))
+                .InvokeTitle("Marker Title #2")
+                .InvokeSnippet("Marker Desc #2");
+            marker2 = hMap.AddMarker(marker2Options);
 
-                CameraUpdate cameraUpdate = CameraUpdateFactory.NewLatLng(pointMarker);
-                hMap.AnimateCamera(cameraUpdate);
+            CameraUpdate cameraUpdate = CameraUpdateFactory.NewLatLng(pointMarker);
+            hMap.AnimateCamera(cameraUpdate);
 
         }
 
@@ -82,11 +82,21 @@ namespace HMS_Map_Demo.ViewModels
                 }
 
             };
+            RequestRoute(hMap, api_key, points);
+        }
+
+        private void RequestRoute(HuaweiMap hMap, string api_key, RoutePoints points) 
+        {
             RouteInterface routeInterface = new RouteInterface(api_key, RouteType.DRIVING);
             Task<string> routeTask = routeInterface.FetchRouteAsync(points);
             // Do something here
             DirectionsApiResponse response = DirectionsApiResponse.FromJson(routeTask.Result.ToString());
             Path path = response.Routes.First().Paths.First();
+            DrawRoute(hMap, path);
+        }
+
+        private void DrawRoute(HuaweiMap hMap, Path path)
+        {
             Polyline polyline1;
             PolylineOptions polyline1Options = new PolylineOptions();
             LatLng Start = new LatLng(path.StartLocation.Lat, path.StartLocation.Lng);
@@ -101,10 +111,10 @@ namespace HMS_Map_Demo.ViewModels
             LatLng End = new LatLng(path.EndLocation.Lat, path.EndLocation.Lng);
             polyline1Options.Add(End);
             polyline1Options.InvokeColor(Color.Blue);
-            polyline1Options.InvokeWidth(20);
+            polyline1Options.InvokeWidth(2);
             polyline1Options.InvokeZIndex(1);
-            polyline1Options.Visible(false);
-            polyline1Options.Clickable(true);
+            polyline1Options.Visible(true);
+            polyline1Options.Clickable(false);
             polyline1 = hMap.AddPolyline(polyline1Options);
         }
     }
