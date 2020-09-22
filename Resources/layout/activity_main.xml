@@ -26,6 +26,18 @@
         android:orientation="horizontal"
         android:weightSum="5">
 
+     <Button
+            android:id="@+id/btnRouteDemo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Show Route"
+            android:layout_weight="5"
+            android:textSize="13sp"
+            android:textAlignment="center"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:background="@color/colorAccent"/>
+
           <Button
             android:id="@+id/btnMarkersDemo"
             android:layout_width="0dp"
@@ -33,6 +45,7 @@
             android:text="Markers"
             android:layout_weight="1"
             android:textSize="13sp"
+            android:visibility="gone"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
@@ -44,6 +57,7 @@
             android:layout_height="wrap_content"
             android:text="type"
             android:layout_weight="1"
+            android:visibility="gone"
             android:textSize="13sp"
             android:textAlignment="center"
             android:textAllCaps="false"
@@ -55,6 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Polylines"
+            android:visibility="gone"
             android:textSize="13sp"
             android:textAlignment="center"
             android:textAllCaps="false"
@@ -68,6 +83,7 @@
             android:text="Polygons"
             android:layout_weight="1"
             android:textSize="13sp"
+            android:visibility="gone"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
@@ -80,6 +96,7 @@
             android:text="Circles"
             android:layout_weight="1"
             android:textSize="13sp"
+            android:visibility="gone"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@android:color/white"
@@ -89,6 +106,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Overlays"
+            android:visibility="gone"
             android:layout_weight="1"
             android:textSize="13sp"
             android:textAlignment="center"

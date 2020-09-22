@@ -37,11 +37,16 @@
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
-    <AndroidSigningKeyStore>/Users/felipe/Downloads/HMS-MAP-EXAMPLE-master/mydemo.jks</AndroidSigningKeyStore>
+    <AndroidSigningKeyStore>C:\Users\Felipe\Documents\XamarinAndroidMVVM\mydemo.jks</AndroidSigningKeyStore>
     <AndroidSigningStorePass>123456</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>mydemo</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>123456</AndroidSigningKeyPass>
     <AndroidKeyStore>True</AndroidKeyStore>
+    <AotAssemblies>false</AotAssemblies>
+    <EnableLLVM>false</EnableLLVM>
+    <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
+    <BundleAssemblies>false</BundleAssemblies>
+    <MandroidI18n />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>True</DebugSymbols>
@@ -65,6 +70,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomMapInfoWindow.cs" />
+    <Compile Include="Data\Model\DirectionsApiResponse.cs" />
+    <Compile Include="Data\Model\DirectionType.cs" />
+    <Compile Include="Data\Model\RoutePoints.cs" />
+    <Compile Include="Data\RouteInterface.cs" />
     <Compile Include="HmsLazyInputStream.cs" />
     <Compile Include="MainActivity.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
@@ -104,8 +113,10 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\ic_launcher_round.png" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
     <PackageReference Include="Xamarin.Android.HMSBase">
       <Version>4.0.0.305</Version>
     </PackageReference>

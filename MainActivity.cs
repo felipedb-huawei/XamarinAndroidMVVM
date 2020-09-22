@@ -25,12 +25,16 @@ namespace HMS_Map_Demo
     public class MainActivity : AppCompatActivity, IOnMapReadyCallback
     {
         private static string TAG = "MapViewDemoActivity";
+
+        private static string api_key = "CgB6e3x98CQUoPn8ejuZ+o0//ZVj+Magoek3yeqpzNtAxIoa1YlBapPoGa+C8cMmhaNZ9l3T0zFxPfYvbsYlbzCa";
         //Huawei map
         private HuaweiMap hMap;
 
         private MapFragment mMapView;
 
-        Button btnPolylineDemo, btnPolygonDemo, btnCircleDemo, btnMarkersDemo, btnOverlayDemo, btntype;
+        Button btnPolylineDemo, btnPolygonDemo, btnCircleDemo, btnMarkersDemo, btnOverlayDemo, btntype, btnRouteDemo;
+
+        bool showRoute = false;
 
         MainViewModel viewModel;
 
@@ -55,8 +59,11 @@ namespace HMS_Map_Demo
                 Android.Manifest.Permission.Internet }, 100);
 
             //get mapview instance
-            
+
             mMapView = FragmentManager.FindFragmentById<MapFragment>(Resource.Id.mapview);
+
+            btnRouteDemo = FindViewById<Button>(Resource.Id.btnRouteDemo);
+            btnRouteDemo.Click += OnRouteClick;
 
             btnMarkersDemo = FindViewById<Button>(Resource.Id.btnMarkersDemo);
             btnMarkersDemo.Click += btnMarkersDemo_Click;
@@ -72,7 +79,7 @@ namespace HMS_Map_Demo
 
             mMapView.OnCreate(mapViewBundle);
             //get map instance
-            RunOnUiThread(()=> mMapView.GetMapAsync(this));
+            RunOnUiThread(() => mMapView.GetMapAsync(this));
 
         }
 
@@ -82,7 +89,7 @@ namespace HMS_Map_Demo
                 hMap.MapType = 2;
             else
                 hMap.MapType = 1;
-          
+
             RunOnUiThread(() => mMapView.GetMapAsync(this));
         }
 
@@ -170,6 +177,13 @@ namespace HMS_Map_Demo
 
             viewModel.MarkersDemo(hMap, context);
         }
+
+        private void OnRouteClick(object sender, EventArgs e)
+        {
+            btnRouteDemo.Visibility = Android.Views.ViewStates.Gone;
+            viewModel.ShowRoute(hMap, context, api_key);
+        }
+
         private void btnMarkersDemo_Click(object sender, EventArgs e)
         {
             if (hMap != null)
